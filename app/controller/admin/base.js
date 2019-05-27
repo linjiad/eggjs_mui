@@ -25,6 +25,8 @@ class BaseController extends Controller {
 
   }
 
+
+  // 验证码
   async verify() {
 
 
