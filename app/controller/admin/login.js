@@ -8,6 +8,7 @@ class LoginController extends BaseController {
 
     await this.ctx.render('admin/login');
   }
+  // 执行登录的方法
   async doLogin() {
 
     await this.success('/admin/login');
