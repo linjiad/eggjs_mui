@@ -11,5 +11,10 @@ module.exports = {
     enable: true,
     package: 'egg-view-nunjucks',
   },
+  // 利用mongoose连接mongo
+  mongoose: {
+    enable: true,
+    package: 'egg-mongoose',
+  },
 };
 

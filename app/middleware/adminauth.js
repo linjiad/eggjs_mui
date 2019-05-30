@@ -8,9 +8,11 @@ module.exports = options => {
          2、只有登录以后才可以访问后台管理系统
         */
     ctx.state.csrf = ctx.csrf; // 全局变量（post安全）
+    ctx.state.prevPage = ctx.request.headers.referer; // 上一页的地址
     const pathname = url.parse(ctx.request.url).pathname;
     // 判断session.userinfo是否存在
     if (ctx.session.userinfo) {
+      ctx.state.userinfo = ctx.session.userinfo; // 全局变量(在header中显示欢迎XXX)
       await next();
     } else {
       // 排除不需要做权限判断的页面  /admin/verify?mt=0.7466881301614958

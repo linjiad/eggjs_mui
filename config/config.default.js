@@ -25,6 +25,12 @@ module.exports = appInfo => {
       '.nj': 'nunjucks',
     },
   };
+  exports.mongoose = {
+    client: {
+      url: 'mongodb://eggadmin:123456@localhost:27017/eggcms',
+      options: {},
+    },
+  };
 
   // 配置session
   config.session = {
