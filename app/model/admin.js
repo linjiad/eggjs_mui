@@ -19,5 +19,5 @@ module.exports = app => {
       default: 0,
     }, // 是否是超级管理员，如果是1是超级管理员
   });
-  return mongoose.model('Admin', AdminSchema, 'users');
+  return mongoose.model('Admin', AdminSchema, 'admin');
 };
