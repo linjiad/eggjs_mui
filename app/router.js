@@ -23,16 +23,32 @@ module.exports = app => {
   router.post('/admin/role/doAdd', controller.admin.role.doAdd);
   router.post('/admin/role/doEdit', controller.admin.role.doEdit);
   router.get('/admin/role/edit', controller.admin.role.edit);
+  router.get('/admin/role/auth', controller.admin.role.auth);
+  router.post('/admin/role/doAuth', controller.admin.role.doAuth);
 
 
   router.get('/admin/access', controller.admin.access.index);
   router.get('/admin/access/add', controller.admin.access.add);
   router.post('/admin/access/doAdd', controller.admin.access.doAdd);
   router.get('/admin/access/edit', controller.admin.access.edit);
+  router.post('/admin/access/doEdit', controller.admin.access.doEdit);
 
   // 验证码
   router.get('/admin/verify', controller.admin.base.verify);
   // 公共删除方法
   router.get('/admin/delete', controller.admin.base.delete);
+  // 公共路由
+  router.get('/admin/changeStatus', controller.admin.base.changeStatus);
 
+  // 上传图片演示
+  router.get('/admin/focus/multi', controller.admin.focus.multi);
+  router.post('/admin/focus/doSingleUpload', controller.admin.focus.doSingleUpload);
+  router.post('/admin/focus/doMultiUpload', controller.admin.focus.doMultiUpload);
+  // 上传图片演示
+  router.get('/admin/indexBack', controller.admin.focus.indexBack);
+  router.get('/admin/focus', controller.admin.focus.index);
+  router.get('/admin/focus/add', controller.admin.focus.add);
+  router.get('/admin/focus/edit', controller.admin.focus.edit);
+  router.post('/admin/focus/doEdit', controller.admin.focus.doEdit);
+  router.post('/admin/focus/doAdd', controller.admin.focus.doAdd);
 };

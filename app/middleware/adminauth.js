@@ -13,7 +13,14 @@ module.exports = options => {
     // 判断session.userinfo是否存在
     if (ctx.session.userinfo) {
       ctx.state.userinfo = ctx.session.userinfo; // 全局变量(在header中显示欢迎XXX)
-      await next();
+      const hasAuth = await ctx.service.admin.checkAuth(); // 调用服务中用户权限方法
+      if (hasAuth) {
+        // 获取权限列表
+        ctx.state.asideList = await ctx.service.admin.getAuthList(ctx.session.userinfo.role_id);
+        await next();
+      } else {
+        ctx.body = '您没有权限访问当前地址';
+      }
     } else {
       // 排除不需要做权限判断的页面  /admin/verify?mt=0.7466881301614958
       if (pathname === '/admin/login' || pathname === '/admin/doLogin' || pathname === '/admin/verify') {

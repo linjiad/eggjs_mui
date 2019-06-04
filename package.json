@@ -13,6 +13,7 @@
     "egg-view-ejs": "^2.0.0",
     "egg-view-nunjucks": "^2.2.0",
     "md5": "^2.2.1",
+    "silly-datetime": "^0.1.2",
     "svg-captcha": "^1.4.0"
   },
   "devDependencies": {
@@ -28,7 +29,7 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-egg_mui",
+    "start": "egg-scripts start --title=egg-server-egg_mui --port=7001 --daemon=nohup",
     "stop": "egg-scripts stop --title=egg-server-egg_mui",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",

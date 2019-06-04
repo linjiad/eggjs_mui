@@ -46,7 +46,11 @@ module.exports = appInfo => {
   config.adminauth = {
     match: '/admin',
   };
-
+  // 上传白名单
+  /* config.multipart = {
+    whitelist: [ '.png' ], // 覆盖整个白名单，只允许上传 '.png' 格式
+  };*/
+  config.uploadDir = 'app/public/admin/upload'; // 上传图片的地址
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

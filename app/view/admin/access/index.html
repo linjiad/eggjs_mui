@@ -39,8 +39,7 @@
                             <th>操作名称</th>     
                             <th>操作地址</th>                        
                             <th>排序</th>
-                            <th>描述</th>                       
-                            
+                            <th>描述</th>
                             <th class="text-center">操作</th>
                         </tr>
                     </thead>
@@ -61,10 +60,8 @@
                                 <td><%=list[i].url%></td>
                                 <td><%=list[i].sort%></td>
                                 <td><%=list[i].description%></td>
-                            
-                                <td class="text-center">修改  删除</td>
+                                <td class="text-center"><a href="/admin/access/edit?id=<%=list[i]._id%>">修改</a></td>
                             </tr>
-
                             <%for(var j=0;j<list[i].items.length;j++){%>
                                         <tr>
                                                 <td>----<%=list[i].items[j].module_name%></td>
@@ -83,10 +80,12 @@
                                                 <td><%=list[i].items[j].sort%></td>
                 
                                                 <td><%=list[i].items[j].description%></td>
-                                            
-                                                <td class="text-center">修改  删除</td>
-                                            </tr>
 
+                                            <td class="text-center">
+                                                <a href="/admin/access/edit?id=<%=list[i].items[j]._id%>">修改</a>
+                                                <a href="/admin/delete?id=<%=list[i].items[j]._id%>&model=Access">删除</a>
+                                            </td>
+                                            </tr>
                             <%}%>
                         <%}%>
 

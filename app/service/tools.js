@@ -2,6 +2,11 @@
 
 const svgCaptcha = require('svg-captcha'); // 引入验证
 
+// 上传图片时引用的
+const sd = require('silly-datetime');
+const path = require('path');
+const mkdirp = require('mz-modules/mkdirp');
+
 const Service = require('egg').Service;
 // md5加密
 const md5 = require('md5');
@@ -34,6 +39,21 @@ class ToolsService extends Service {
 
     return d.getTime();
 
+  }
+  async getUploadFile(filename) {
+    // 1、获取当前日期     20180920
+    const day = sd.format(new Date(), 'YYYYMMDD');
+    // 2、创建图片保存的路径
+    const dir = path.join(this.config.uploadDir, day);
+    await mkdirp(dir);
+    const d = await this.getTime(); /* 毫秒数*/
+    // 返回图片保存的路径
+    const uploadDir = path.join(dir, d + path.extname(filename));
+    // app\public\admin\upload\20180914\1536895331444.png
+    return {
+      uploadDir,
+      saveDir: uploadDir.slice(3).replace(/\\/g, '/'),
+    };
   }
 }
 
