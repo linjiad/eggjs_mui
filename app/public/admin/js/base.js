@@ -1,8 +1,14 @@
 const app = {
-
-
   init() {
     this.toggleAside();
+    this.deleteConfirm();
+  },
+  // 删除提示
+  deleteConfirm() {
+    $('.delete').click(function() {
+      const flag = confirm('您确定要删除吗?');
+      return flag;
+    });
 
   },
   toggleAside() {

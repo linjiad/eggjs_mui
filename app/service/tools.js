@@ -3,7 +3,7 @@
 const svgCaptcha = require('svg-captcha'); // 引入验证
 
 // 上传图片时引用的
-const sd = require('silly-datetime');
+const sd = require('silly-datetime'); // 事件相关插件模块
 const path = require('path');
 const mkdirp = require('mz-modules/mkdirp');
 
@@ -33,26 +33,25 @@ class ToolsService extends Service {
 
     return md5(str);
   }
+  // 获取时间
   async getTime() {
-
     const d = new Date();
-
     return d.getTime();
-
   }
   async getUploadFile(filename) {
     // 1、获取当前日期     20180920
     const day = sd.format(new Date(), 'YYYYMMDD');
-    // 2、创建图片保存的路径
+    // 2、创建图片保存的路径（创建文件夹）
     const dir = path.join(this.config.uploadDir, day);
-    await mkdirp(dir);
+    await mkdirp(dir);// 创建文件
     const d = await this.getTime(); /* 毫秒数*/
     // 返回图片保存的路径
+    // 获取后缀名path.extname(filename)
     const uploadDir = path.join(dir, d + path.extname(filename));
-    // app\public\admin\upload\20180914\1536895331444.png
+    // app\public\admin\upload\20180914\1536895331444.png  用时间戳表示图片名称
     return {
-      uploadDir,
-      saveDir: uploadDir.slice(3).replace(/\\/g, '/'),
+      uploadDir, // 图片保存路径
+      saveDir: uploadDir.slice(3).replace(/\\/g, '/'), // 数据库存储路径
     };
   }
 }

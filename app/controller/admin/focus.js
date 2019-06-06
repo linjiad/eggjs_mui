@@ -31,8 +31,8 @@ class FocusController extends BaseController {
   async doAdd() {
 
     const parts = this.ctx.multipart({ autoFields: true });
-    let files = {};
     let stream;
+    let files = {};
     while ((stream = await parts()) != null) {
       if (!stream.filename) {
         break;
@@ -43,24 +43,21 @@ class FocusController extends BaseController {
       const dir = await this.service.tools.getUploadFile(stream.filename);
       const target = dir.uploadDir;
       const writeStream = fs.createWriteStream(target);
-
+      // 上传图片到项目中
       await pump(stream, writeStream);
-
-      files = Object.assign(files, {
+      // 拼接model
+      files = Object.assign(files, { // 对象的拼接
         [fieldname]: dir.saveDir,
       });
-
     }
 
-    // [{"focus_img":"/public/admin/upload/20180914/1536895826566.png"}，{"aaaa":"/public/admin/upload/20180914/1536895826566.png"}]
+    // 原来是这样的：[{"focus_img":"/public/admin/upload/20180914/1536895826566.png"}，{"aaaa":"/public/admin/upload/20180914/1536895826566.png"}]
 
-    // {"focus_img":"/public/admin/upload/20180914/1536895826566.png",'aaa':'/wefewt/ewtrewt'}
+    // 想要的是这样的：{"focus_img":"/public/admin/upload/20180914/1536895826566.png",'aaa':'/wefewt/ewtrewt'}
 
-    // {"focus_img":"/public/admin/upload/20180914/1536895826566.png"，"title":"aaaaaaaa","link":"11111111111","sort":"11","status":"1"}
-
-
+    // 拼接后是这样的：{"focus_img":"/public/admin/upload/20180914/1536895826566.png"，"title":"aaaaaaaa","link":"11111111111","sort":"11","status":"1"}
+    // 图片路径上传到数据库
     const focus = new this.ctx.model.Focus(Object.assign(files, parts.field));
-
     const result = await focus.save();
     console.log(result);
     await this.success('/admin/focus', '增加轮播图成功');
@@ -83,7 +80,6 @@ class FocusController extends BaseController {
   }
 
   async doEdit() {
-
     const parts = this.ctx.multipart({ autoFields: true });
     let files = {};
     let stream;
@@ -92,32 +88,22 @@ class FocusController extends BaseController {
         break;
       }
       const fieldname = stream.fieldname; // file表单的名字
-
       // 上传图片的目录
       const dir = await this.service.tools.getUploadFile(stream.filename);
       const target = dir.uploadDir;
       const writeStream = fs.createWriteStream(target);
-
       await pump(stream, writeStream);
-
       files = Object.assign(files, {
         [fieldname]: dir.saveDir,
       });
-
     }
-
     // 修改操作
-
     const id = parts.field.id;
-
-
     const updateResult = Object.assign(files, parts.field);
 
     const result = await this.ctx.model.Focus.updateOne({ _id: id }, updateResult);
     console.log(result);
     await this.success('/admin/focus', '修改轮播图成功');
-
-
   }
   async indexBack() {
     await this.ctx.render('admin/focus/indexBack');
