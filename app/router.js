@@ -7,6 +7,10 @@ module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.home.index);
 
+  //  重构iferam方法的主页面
+  router.get('/admin', controller.admin.main.index);
+  router.get('/admin/welcome', controller.admin.main.welcome);
+
   router.get('/admin/login', controller.admin.login.index);
   router.post('/admin/doLogin', controller.admin.login.doLogin);
   router.get('/admin/loginOut', controller.admin.login.loginOut);
@@ -39,6 +43,8 @@ module.exports = app => {
   router.get('/admin/delete', controller.admin.base.delete);
   // 公共路由
   router.get('/admin/changeStatus', controller.admin.base.changeStatus);
+  // 修改数量方法
+  router.get('/admin/editNum', controller.admin.base.editNum);
 
   // 上传图片演示
   router.get('/admin/focus/multi', controller.admin.focus.multi);
@@ -51,4 +57,20 @@ module.exports = app => {
   router.get('/admin/focus/edit', controller.admin.focus.edit);
   router.post('/admin/focus/doEdit', controller.admin.focus.doEdit);
   router.post('/admin/focus/doAdd', controller.admin.focus.doAdd);
+  // 商品类型
+  router.get('/admin/goodsType', controller.admin.goodsType.index);
+  router.get('/admin/goodsType/add', controller.admin.goodsType.add);
+  router.get('/admin/goodsType/edit', controller.admin.goodsType.edit);
+  router.post('/admin/goodsType/doEdit', controller.admin.goodsType.doEdit);
+  router.post('/admin/goodsType/doAdd', controller.admin.goodsType.doAdd);
+  // 商品类型属性
+  router.get('/admin/goodsTypeAttribute', controller.admin.goodsTypeAttribute.index);
+  router.get('/admin/goodsTypeAttribute/add', controller.admin.goodsTypeAttribute.add);
+  router.get('/admin/goodsTypeAttribute/edit', controller.admin.goodsTypeAttribute.edit);
+  router.post('/admin/goodsTypeAttribute/doEdit', controller.admin.goodsTypeAttribute.doEdit);
+  router.post('/admin/goodsTypeAttribute/doAdd', controller.admin.goodsTypeAttribute.doAdd);
+  // 商品分类模块
+  router.get('/admin/goodsCate', controller.admin.goodsCate.index);
+  router.get('/admin/goodsCate/add', controller.admin.goodsCate.add);
+  router.post('/admin/goodsCate/doAdd', controller.admin.goodsCate.doAdd);
 };

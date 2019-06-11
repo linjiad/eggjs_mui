@@ -14,13 +14,9 @@ const BaseController = require('./base.js');
 
 class FocusController extends BaseController {
   async index() {
-
     // 获取轮播图的数据
-
     const result = await this.ctx.model.Focus.find({});
-
     await this.ctx.render('admin/focus/index', {
-
       list: result,
     });
   }

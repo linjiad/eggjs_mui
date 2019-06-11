@@ -1,14 +1,7 @@
 <%- include ../public/page_header.html %>
-
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2">
-            <%- include ../public/page_aside.html %>
-			
-          
-        </div>
-        <div class="col-sm-10">
+        <div class="col-sm-12">
             <div class="panel panel-default">              
                     <div class="panel-heading">
                         轮播图列表
@@ -24,7 +17,8 @@
                                 <th>名称</th>
                                 <th>分类</th>
                                 <th>图片</th>
-                                <th>跳转地址</th>                                             
+                                <th>跳转地址</th>
+                                <th class="text-center">排序</th>
                                 <th class="text-center">状态</th>                                             
                             
                                 <th class="text-center">操作</th>
@@ -56,15 +50,14 @@
                                                 <td><img class="pic" src="<%=list[i].focus_img%>" /></td>
                                                 <td><%=list[i].link%></td>
                                                 <td class="text-center">
-
+                                                    <span onclick="app.editNum(this,'Focus','sort','<%=list[i]._id%>')"><%=list[i].sort%></span>
+                                                </td>
+                                                <td class="text-center">
                                                    <%if(list[i].status==1){%>
-
                                                             <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Focus','status','<%=list[i]._id%>')" />
-
                                                     <%}else{%>
                                                             <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Focus','status','<%=list[i]._id%>')" />
                                                     <%}%>
-
                                                 </td>                                                                    
                                                 <td class="text-center">　
                                                     <a href="/admin/focus/edit?id=<%=list[i]._id%>">修改</a>
