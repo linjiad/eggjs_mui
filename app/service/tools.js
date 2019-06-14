@@ -11,6 +11,7 @@ const Service = require('egg').Service;
 // md5加密
 const md5 = require('md5');
 
+const Jimp = require('jimp'); // 生成缩略图的模块
 
 class ToolsService extends Service {
 
@@ -53,6 +54,20 @@ class ToolsService extends Service {
       uploadDir, // 图片保存路径
       saveDir: uploadDir.slice(3).replace(/\\/g, '/'), // 数据库存储路径
     };
+  }
+
+  // 生成缩略图的公共方法
+  async jimpImg(target) {
+    // 上传图片成功以后生成缩略图
+    Jimp.read(target, (err, lenna) => { // target选择图片
+      if (err) throw err;
+      lenna.resize(200, 200) // 图片大小
+        .quality(90) // 图片质量
+        .write(target + '_200x200' + path.extname(target)); // 生成缩略图
+      lenna.resize(400, 400) // 再来一张
+        .quality(90) // set JPEG quality
+        .write(target + '_400x400' + path.extname(target)); // save
+    });
   }
 }
 

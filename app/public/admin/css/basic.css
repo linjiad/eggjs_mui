@@ -25,6 +25,22 @@ ul{
 
 }
 
+.input{
+
+    width:600px;
+}
+
+
+.form_input span{
+    display: inline-block;
+
+    width: 100px;
+    text-align: right;
+
+}
+
+
+
 .panel-heading span{
     position: relative;
     top:10px;
@@ -163,3 +179,49 @@ input[type=file]{
 }
 
 
+
+/*商品详情*/
+
+.goods_content{
+
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.nav-tabs{
+
+    background: #eee;
+}
+
+
+.tab-content{
+
+    position: relative;
+
+    top:-24px;
+    background: #fff;
+
+    padding-top:20px;
+
+
+
+}
+
+.goods_content_btn{
+    position: relative;
+
+    left:50px;
+
+    bottom: 20px;
+}
+
+
+.photoLib{
+
+    width: 120px;
+    margin: 40px auto 20px auto;
+
+
+}
+
+.photoLib div:nth-child(2){width:100%!important;height:100%!important;}

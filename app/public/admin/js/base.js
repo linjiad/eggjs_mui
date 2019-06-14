@@ -20,6 +20,8 @@ const app = {
   },
   // 点左面菜单方法
   toggleAside() {
+    // 让前三个菜单合上
+    $('.aside>li:nth-child(1) ul,.aside>li:nth-child(2) ul,.aside>li:nth-child(3) ul').hide();
     $('.aside h4').click(function() {
       if ($(this).find('span').hasClass('nav_close')) {
         $(this).find('span').removeClass('nav_close')
