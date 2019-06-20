@@ -47,18 +47,18 @@ ul{
 }
 
 .aside h4{
-    margin-top: 0px;
-    font-size: 15px;
-    cursor: pointer;
-
-    position: relative;
+	margin-top: 0px;
+	font-size: 15px;
+	cursor: pointer;
+	
+	position: relative;
     display: block;
     padding: 10px 15px;
-    margin-bottom: -1px;
+    margin-bottom: -1px;    
     color: #fff;
     background-color: #428bca;
     border-color: #428bca;
-
+    
     border-bottom: 2px solid #3a82bf;
 }
 
@@ -90,24 +90,24 @@ ul{
 
 .aside .list-group-item:first-child{
 
-    border-top-left-radius: 0px;
+	border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }
 
 .aside .list-group-item:last-child{
-
-    border-bottom-right-radius: 0px;
+	
+	border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
 }
 
 
 
 .aside .list-group-item a{
-
-    display: inline-block;
-    width: 100%;
-    text-indent: 10px;
-    color: #555
+	
+	display: inline-block;
+	width: 100%;
+	text-indent: 10px;
+	color: #555
 }
 
 
@@ -129,8 +129,8 @@ ul{
 
 
 table .th{
-
-    background: #EEEEEE;
+	
+	background: #EEEEEE;
 }
 
 
@@ -157,7 +157,7 @@ table .th{
     color: #666;
 }
 input[type=file]{
-    display: inline !important;
+ 	display: inline !important;
 
 }
 
@@ -170,12 +170,12 @@ input[type=file]{
 
 
 .col-sm-2,.col-sm-10{
-    padding-left: 0px;
+	padding-left: 0px;
 }
 
 
 .navbar{
-    border-radius: 0px;
+	border-radius: 0px;
 }
 
 
@@ -202,7 +202,7 @@ input[type=file]{
     background: #fff;
 
     padding-top:20px;
-
+ 
 
 
 }
@@ -221,7 +221,47 @@ input[type=file]{
     width: 120px;
     margin: 40px auto 20px auto;
 
-
+    
 }
 
 .photoLib div:nth-child(2){width:100%!important;height:100%!important;}
+
+
+
+
+.goods_image_list {
+    border:1px solid #eee;
+
+}
+.goods_image_list li{
+    width:  120px;   
+    float: left;    
+    margin-right: 10px;
+    border-bottom: none;
+
+    position: relative;
+}
+
+.goods_image_list li .goods_image_delete{
+    width: 40px;
+    height: 40px;
+    background: url('../webuploader/images/x_alt.png') no-repeat center center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+
+
+}
+
+
+
+
+.goods_image_list li .color_list{
+
+    
+    margin-top:20px;
+
+}
+
+
