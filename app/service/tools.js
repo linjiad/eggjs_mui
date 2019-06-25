@@ -57,7 +57,7 @@ class ToolsService extends Service {
   }
 
   // 生成缩略图的公共方法
-  async jimpImg(target) {
+  /* async jimpImg(target) {
     // 上传图片成功以后生成缩略图
     Jimp.read(target, (err, lenna) => { // target选择图片
       if (err) throw err;
@@ -68,6 +68,22 @@ class ToolsService extends Service {
         .quality(90) // set JPEG quality
         .write(target + '_400x400' + path.extname(target)); // save
     });
+  }*/
+  // 生成缩略图的公共方法
+  async jimpImg(target) {
+    // 上传图片成功以后生成缩略图
+    Jimp.read(target, (err, lenna) => {
+      if (err) throw err;
+      for (let i = 0; i < this.config.jimpSize.length; i++) {
+        const w = this.config.jimpSize[i].width;
+        const h = this.config.jimpSize[i].height;
+        lenna.resize(w, h) // resize
+          .quality(90) // set JPEG quality
+          .write(target + '_' + w + 'x' + h + path.extname(target));
+      }
+    });
+
+
   }
 }
 

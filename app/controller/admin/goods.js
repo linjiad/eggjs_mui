@@ -203,6 +203,8 @@ class GoodsController extends BaseController {
       files = Object.assign(files, {
         [fieldname]: dir.saveDir,
       });
+      // 生成缩略图
+      this.service.tools.jimpImg(target);
 
     }
 
@@ -297,6 +299,8 @@ class GoodsController extends BaseController {
       files = Object.assign(files, {
         [fieldname]: dir.saveDir,
       });
+      // 生成缩略图
+      this.service.tools.jimpImg(target);
 
     }
 

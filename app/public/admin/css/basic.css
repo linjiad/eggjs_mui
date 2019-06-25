@@ -47,18 +47,18 @@ ul{
 }
 
 .aside h4{
-	margin-top: 0px;
-	font-size: 15px;
-	cursor: pointer;
-	
-	position: relative;
+    margin-top: 0px;
+    font-size: 15px;
+    cursor: pointer;
+
+    position: relative;
     display: block;
     padding: 10px 15px;
-    margin-bottom: -1px;    
+    margin-bottom: -1px;
     color: #fff;
     background-color: #428bca;
     border-color: #428bca;
-    
+
     border-bottom: 2px solid #3a82bf;
 }
 
@@ -90,24 +90,24 @@ ul{
 
 .aside .list-group-item:first-child{
 
-	border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }
 
 .aside .list-group-item:last-child{
-	
-	border-bottom-right-radius: 0px;
+
+    border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
 }
 
 
 
 .aside .list-group-item a{
-	
-	display: inline-block;
-	width: 100%;
-	text-indent: 10px;
-	color: #555
+
+    display: inline-block;
+    width: 100%;
+    text-indent: 10px;
+    color: #555
 }
 
 
@@ -129,10 +129,21 @@ ul{
 
 
 table .th{
-	
-	background: #EEEEEE;
+
+    background: #EEEEEE;
 }
 
+table .th th{
+
+
+    white-space: nowrap;
+}
+
+
+table td{
+
+    word-break: break-all;
+}
 
 /*数量*/
 
@@ -157,7 +168,7 @@ table .th{
     color: #666;
 }
 input[type=file]{
- 	display: inline !important;
+    display: inline !important;
 
 }
 
@@ -170,19 +181,19 @@ input[type=file]{
 
 
 .col-sm-2,.col-sm-10{
-	padding-left: 0px;
+    padding-left: 0px;
 }
 
 
 .navbar{
-	border-radius: 0px;
+    border-radius: 0px;
 }
 
 
 
 /*商品详情*/
 
-.goods_content{
+.goods_content,.news_content{
 
     border: 1px solid #eee;
     margin-bottom: 20px;
@@ -202,7 +213,7 @@ input[type=file]{
     background: #fff;
 
     padding-top:20px;
- 
+
 
 
 }
@@ -221,7 +232,7 @@ input[type=file]{
     width: 120px;
     margin: 40px auto 20px auto;
 
-    
+
 }
 
 .photoLib div:nth-child(2){width:100%!important;height:100%!important;}
@@ -234,8 +245,8 @@ input[type=file]{
 
 }
 .goods_image_list li{
-    width:  120px;   
-    float: left;    
+    width:  120px;
+    float: left;
     margin-right: 10px;
     border-bottom: none;
 
@@ -259,7 +270,7 @@ input[type=file]{
 
 .goods_image_list li .color_list{
 
-    
+
     margin-top:20px;
 
 }

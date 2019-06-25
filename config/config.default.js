@@ -72,6 +72,20 @@ module.exports = appInfo => {
     },
   };
 
+  // 定义缩略图的尺寸
+  exports.jimpSize = [
+
+    {
+      width: 180,
+      height: 180,
+    }, {
+
+      width: 400,
+      height: 400,
+    },
+
+  ];
+
   return {
     ...config,
     ...userConfig,
