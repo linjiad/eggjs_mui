@@ -4,8 +4,6 @@ const Controller = require('egg').Controller;
 
 class IndexController extends Controller {
   async index() {
-
-
     // 获取顶部导航的数据
 
     const topNav = await this.ctx.model.Nav.find({ position: 1 });

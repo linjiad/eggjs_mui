@@ -51,6 +51,15 @@ module.exports = appInfo => {
     whitelist: [ '.png' ], // 覆盖整个白名单，只允许上传 '.png' 格式
   };*/
   config.uploadDir = 'app/public/admin/upload'; // 上传图片的地址
+
+  config.redis = {
+    client: {
+      port: 6379, // Redis port
+      host: '127.0.0.1', // Redis host
+      password: '',
+      db: 0,
+    },
+  };
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
